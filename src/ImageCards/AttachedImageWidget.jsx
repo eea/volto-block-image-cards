@@ -9,11 +9,10 @@ import imageBlockSVG from '@plone/volto/components/manage/Blocks/Image/block-ima
 import { createContent } from '@plone/volto/actions';
 import { FormFieldWrapper } from '@plone/volto/components';
 import { v4 as uuid } from 'uuid';
-
-import { settings } from '~/config';
+import config from '@plone/volto/registry';
 
 export const oldThumbUrl = (url) =>
-  (url || '').includes(settings.apiPath)
+  (url || '').includes(config.settings.apiPath)
     ? `${flattenToAppURL(url)}/@@images/image/thumb`
     : url;
 

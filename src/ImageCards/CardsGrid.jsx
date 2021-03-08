@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import React from 'react';
-import { settings } from '~/config';
+import config from '@plone/volto/registry';
 import { flattenToAppURL } from '@plone/volto/helpers';
 import { Grid, Icon } from 'semantic-ui-react';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
@@ -13,7 +13,7 @@ import './css/cardsgrid.less';
 import { serializeNodes } from 'volto-slate/editor/render';
 
 export const thumbUrl = (url) =>
-  (url || '').includes(settings.apiPath)
+  (url || '').includes(config.settings.apiPath)
     ? `${flattenToAppURL(url.replace('/api', ''))}/@@images/image/preview`
     : `${url.replace('/api', '')}/@@images/image/preview`;
 
