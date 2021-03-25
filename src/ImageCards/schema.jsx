@@ -6,15 +6,7 @@ const ImageCard = () => ({
     {
       id: 'default',
       title: 'Default',
-      fields: [
-        'title',
-        'text',
-        'attachedimage',
-        'link',
-        'copyright',
-        'background_color',
-        'text_color',
-      ],
+      fields: ['title', 'text', 'attachedimage', 'link', 'copyright'],
     },
   ],
 
@@ -39,33 +31,18 @@ const ImageCard = () => ({
       widget: 'slate_richtext',
       title: 'Copyright',
     },
-    text_color: {
-      widget: 'style_simple_color',
-      title: 'Card Text color',
-      type: 'color',
-      available_colors: config.settings.available_colors,
-    },
-    background_color: {
-      widget: 'style_simple_color',
-      title: 'Card Background color',
-      type: 'color',
-      available_colors: config.settings.available_colors,
-      field_props: {
-        available_colors: config.settings.available_colors,
-      },
-    },
   },
 
   required: ['attachedimage'],
 });
 
-const ImageCards = () => {
-  const display_types_obj = config.blocks.blocksConfig.imagecards.display_types;
-  const display_choices = [];
-  const display_types_ids = Object.keys(display_types_obj);
-  display_types_ids.forEach(function (value) {
-    display_choices.push([value, display_types_obj[value].title]);
-  });
+const ImageCards = (props) => {
+  const display_types_obj =
+    config.blocks.blocksConfig.imagecards.blockRenderers;
+  const selected_renderer = props && props.data.display;
+  const schema =
+    (selected_renderer && display_types_obj[selected_renderer].schema) ||
+    ImageCard;
 
   return {
     title: 'Image Cards',
@@ -89,14 +66,14 @@ const ImageCards = () => {
       },
       display: {
         title: 'Display',
-        choices: display_choices,
+        choices: [],
       },
       cards: {
-        widget: 'object_list',
+        widget: 'object_list_inline',
         title: 'Images',
         // this is an invention, should confront with dexterity serializer
         description: 'Add a list of Images as Carousel Items',
-        schema: ImageCard(),
+        schema: schema(),
       },
       align: {
         title: 'Alignment',

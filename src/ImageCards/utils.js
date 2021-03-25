@@ -8,3 +8,7 @@ export const fixUrl = (url) =>
   (url || '').includes(config.settings.apiPath)
     ? `${flattenToAppURL(url.replace('/api', ''))}/@@images/image/panoramic`
     : `${url.replace('/api', '')}/@@images/image/panoramic`;
+
+// export const getBlockRenderers = (url) => {
+//
+// }
