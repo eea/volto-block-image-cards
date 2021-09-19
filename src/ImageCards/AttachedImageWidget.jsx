@@ -154,8 +154,9 @@ export class UnconnectedAttachedImageWidget extends Component {
                   <center>
                     <Item>
                       <input {...getInputProps()} />
+                      <div className="discreet">Click to upload</div>
                       <img src={imageBlockSVG} alt="" />
-                      <div className="discreet">Click or drag file here</div>
+                      <UrlWidget {...this.props} wrapped={false} />
                     </Item>
                   </center>
                 </Message>
@@ -163,8 +164,6 @@ export class UnconnectedAttachedImageWidget extends Component {
             }}
           </Dropzone>
         )}
-
-        <UrlWidget {...this.props} wrapped={false} />
 
         {this.state.errorMessage && this.state.errorMessage && (
           <Label basic color="red" pointing>
