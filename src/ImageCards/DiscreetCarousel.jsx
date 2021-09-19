@@ -8,7 +8,7 @@ import rightSVG from '@plone/volto/icons/right-key.svg';
 import cx from 'classnames';
 
 import 'slick-carousel/slick/slick.css';
-import './css/carousel.less';
+import './css/discreetcarousel.less';
 
 import { getScaleUrl, getPath } from './utils';
 
@@ -17,7 +17,7 @@ import { BodyClass } from '@plone/volto/helpers';
 
 const Slider = loadable(() => import('react-slick'));
 
-class Carousel extends Component {
+class DiscreetCarousel extends Component {
   constructor(props) {
     super(props);
     this.next = this.next.bind(this);
@@ -49,7 +49,6 @@ class Carousel extends Component {
                 : {}
             }
           />
-          <div className="slide-overlay"></div>
           <div className="ui container">
             <div className="slide-body">
               {card.link ? (
@@ -105,8 +104,8 @@ class Carousel extends Component {
   };
 
   render() {
-    const { data } = this.props;
-    const cards = this.props.data.cards || [];
+    const { data = {} } = this.props;
+    const { cards = [] } = data;
 
     var settings = {
       fade: true,
@@ -136,7 +135,10 @@ class Carousel extends Component {
             'full-width': data.align === 'full',
           })}
         >
-          <div className="slider-wrapper">
+          <div
+            className="discreet-slider-wrapper"
+            style={{ height: data.height || '100px' }}
+          >
             {cards.length ? (
               <Slider {...settings} ref={(slider) => (this.slider = slider)}>
                 {this.renderSlide(cards, data)}
@@ -152,4 +154,17 @@ class Carousel extends Component {
   }
 }
 
-export default Carousel;
+DiscreetCarousel.schemaExtender = (schema, data) => {
+  schema.properties.height = {
+    title: 'Height',
+    description: 'Specify height as a CSS size property (ex: 700px or 20vh)',
+  };
+  schema.fieldsets.push({
+    id: 'discreetCarousel',
+    title: 'Discreet carousel settings',
+    fields: ['height'],
+  });
+  return schema;
+};
+
+export default DiscreetCarousel;

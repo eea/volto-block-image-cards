@@ -5,7 +5,7 @@ import config from '@plone/volto/registry';
 
 import ImageCardsView from './ImageCardsView';
 
-import image_schema from './schema';
+import ImageCardSchema from './schema';
 
 const tweakSchema = (schema, data) => {
   const { blockRenderers } = config.blocks.blocksConfig.imagecards;
@@ -15,8 +15,9 @@ const tweakSchema = (schema, data) => {
   return extension ? extension(schema, data) : schema;
 };
 
-const ImageCardEdit = (props) => {
-  const schema = tweakSchema(image_schema(props), props.data);
+const ImageCardsEdit = (props) => {
+  const basicSchema = ImageCardSchema(props);
+  const schema = tweakSchema(basicSchema, props.data);
   const display = props.data.display || 'carousel';
   const CardsView =
     config.blocks.blocksConfig.imagecards.blockRenderers?.[display]?.edit ||
@@ -36,7 +37,10 @@ const ImageCardEdit = (props) => {
               [id]: value,
             });
           }}
-          formData={props.data}
+          formData={{
+            ...props.data,
+            display: props.data?.display || 'carousel',
+          }}
           block={props.block}
         />
       </SidebarPortal>
@@ -44,4 +48,4 @@ const ImageCardEdit = (props) => {
   );
 };
 
-export default ImageCardEdit;
+export default ImageCardsEdit;

@@ -8,6 +8,7 @@ import {
 import AttachedImageWidget from './ImageCards/AttachedImageWidget';
 import RoundTiled from './ImageCards/RoundTiled';
 import Carousel from './ImageCards/Carousel';
+import DiscreetCarousel from './ImageCards/DiscreetCarousel';
 
 export default (config) => {
   config.blocks.blocksConfig.imagecards = {
@@ -35,9 +36,15 @@ export default (config) => {
         view: RoundTiled,
       },
       carousel: {
-        title: 'Carousel',
+        title: 'Splashy Carousel',
         schema: null,
         view: Carousel,
+      },
+      discreetCarousel: {
+        title: 'Discreet Carousel',
+        schema: null,
+        view: DiscreetCarousel,
+        schemaExtender: DiscreetCarousel.schemaExtender,
       },
     },
     security: {
