@@ -46,13 +46,16 @@ const Card = ({ card = {}, height, image_scale, mode = 'view' }) => {
 
 const DiscreetCarousel = (props) => {
   const { data = {}, editable = false } = props;
+  const [isClient, setIsClient] = React.useState(false);
+
+  React.useEffect(() => setIsClient(true), []);
   const {
     cards = [],
     height = '100px',
     itemsPerRow = 4,
     hideNavigationDots = false,
     autoplay = false,
-    autoplaySpeed = 1000,
+    autoplaySpeed = 3000,
     image_scale = 'large',
   } = data;
 
@@ -95,7 +98,6 @@ const DiscreetCarousel = (props) => {
       },
     ],
   };
-  console.log(carouselSettings);
 
   return !cards.length ? (
     editable ? (
@@ -107,7 +109,7 @@ const DiscreetCarousel = (props) => {
     <div className="discreet-carousel-spotlight">
       <ResponsiveContainer>
         {({ parentWidth }) => {
-          return (
+          return parentWidth && isClient ? (
             <div style={{ width: `${parentWidth}px` }}>
               <Slider {...carouselSettings}>
                 {cards.map((card) => (
@@ -120,6 +122,8 @@ const DiscreetCarousel = (props) => {
                 ))}
               </Slider>
             </div>
+          ) : (
+            ''
           );
         }}
       </ResponsiveContainer>
