@@ -140,7 +140,7 @@ class ResponsiveContainer extends Component {
         }}
         style={{
           minWidth: this.props.minWidth ? this.props.minWidth + 'px' : 'unset',
-          style,
+          ...style,
         }}
       >
         {this.renderChildren(this.props)}

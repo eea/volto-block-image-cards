@@ -4,8 +4,8 @@ import ResponsiveContainer from './ResponsiveContainer';
 
 import loadable from '@loadable/component';
 
-import './css/discreetcarousel.less';
 import 'slick-carousel/slick/slick.css';
+import './css/discreetcarousel.less';
 // import 'slick-carousel/slick/slick-theme.css';
 
 import { getScaleUrl, getPath } from './utils';
@@ -110,7 +110,7 @@ const DiscreetCarousel = (props) => {
       <ResponsiveContainer>
         {({ parentWidth }) => {
           return parentWidth && isClient ? (
-            <div style={{ width: `${parentWidth}px` }}>
+            <div style={{ width: `${parentWidth - 100}px`, margin: '0 auto' }}>
               <Slider {...carouselSettings}>
                 {cards.map((card) => (
                   <Card
