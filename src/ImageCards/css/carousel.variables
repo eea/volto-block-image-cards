@@ -17,7 +17,9 @@
 @slideTitleMarginMobileBottom: 2rem;
 
 @slideBodyBottomPosition: 36%;
-@slideBodyBottomMobilePosition: 50%;
+@slideBodyRightPosition: 0;
+@slideBodyLeftPosition: 0;
+@slideBodyBottomMobilePosition: 40%;
 @slideBodyColor: #fff;
 
 @slideDescriptionMaxWidth: 750px;
@@ -29,6 +31,8 @@
 
 @slideCopyrightBottomMargin: 0 !important;
 @slideCopyrightBottomPosition: 0;
+@slideCopyrightRightPosition: 0;
+@slideCopyrightLeftPosition: 0;
 @slideCopyrightMobileBottomPosition: 25%;
 @slideCopyrightColor: #fff;
 @slideCopyrightFontSize: 11px;

@@ -39,15 +39,20 @@
         background-size: cover;
       }
 
-      .slide-body {
+      .slider-caption {
         position: absolute;
+        right: @slideBodyRightPosition;
         bottom: @slideBodyBottomPosition;
-        color: @slideBodyColor;
-        text-align: left;
+        left: @slideBodyLeftPosition;
 
         @media (max-width: 600px) {
           bottom: @slideBodyBottomMobilePosition;
         }
+      }
+
+      .slide-body {
+        color: @slideBodyColor;
+        text-align: left;
 
         .slide-title {
           margin-bottom: @slideTitleMarginBottom;
@@ -81,13 +86,19 @@
 
       .slide-copyright {
         position: absolute;
+        right: @slideCopyrightRightPosition;
         bottom: @slideCopyrightBottomPosition;
+        left: @slideCopyrightLeftPosition;
         margin-bottom: @slideCopyrightBottomMargin;
         color: @slideCopyrightColor;
-        font-size: @slideCopyrightFontSize;
+        font-size: @slideCopyrightFontSize !important;
         font-style: @slideCopyrightFontStyle;
         opacity: @slideCopyrightOpacity;
         text-shadow: @slideCopyrightTextShadow;
+
+        a {
+          color: @slideCopyrightColor;
+        }
 
         @media (max-width: 600px) {
           bottom: @slideCopyrightMobileBottomPosition;

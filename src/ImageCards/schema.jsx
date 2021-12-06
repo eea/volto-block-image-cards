@@ -71,6 +71,7 @@ const ImageCards = (props) => {
       display: {
         title: 'Display',
         choices: [...display_types],
+        default: 'carousel',
       },
       cards: {
         widget: 'object_list',
