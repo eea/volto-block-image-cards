@@ -1,6 +1,6 @@
 {
   "name": "@eeacms/volto-block-image-cards",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "volto-block-image-cards: Volto add-on",
   "main": "src/index.js",
   "author": "European Environment Agency: IDM2 A-Team",
@@ -21,6 +21,7 @@
     "@eeacms/volto-block-style"
   ],
   "dependencies": {
+    "volto-slate": "*",
     "@eeacms/volto-block-style": "*",
     "react-lazy-load-image-component": "^1.4.0",
     "react-resize-detector": "6.7.6",
@@ -35,8 +36,7 @@
   "peerDependencies": {
     "classnames": "2.2.6",
     "react-loadable": "5.5.0",
-    "uuid": "8.3.1",
-    "volto-slate": "*"
+    "uuid": "8.3.1"
   },
   "scripts": {
     "release": "release-it",

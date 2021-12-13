@@ -165,7 +165,7 @@ export class UnconnectedAttachedImageWidget extends Component {
           </Dropzone>
         )}
 
-        {this.state.errorMessage && this.state.errorMessage && (
+        {this.state.errorMessage && (
           <Label basic color="red" pointing>
             {this.state.errorMessage}
           </Label>
