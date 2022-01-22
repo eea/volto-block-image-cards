@@ -17,8 +17,12 @@ import { createContent } from '@plone/volto/actions';
 import { FormFieldWrapper, Icon } from '@plone/volto/components';
 import UrlWidget from '@plone/volto/components/manage/Widgets/UrlWidget';
 import { v4 as uuid } from 'uuid';
+import FocusPointeditor from './FocusPointeditor';
 
 import clearSVG from '@plone/volto/icons/clear.svg';
+import stateSVG from '@plone/volto/icons/state.svg';
+
+import './css/edit.less';
 
 export const thumbUrl = (url, preview_size) => {
   return `${url}/@@images/image/${preview_size}`;
@@ -34,6 +38,7 @@ export class UnconnectedAttachedImageWidget extends Component {
       uploading: false,
       uid: uuid(),
       errorMessage: null,
+      showFocusEditor: false,
     };
 
     this.onDrop = this.onDrop.bind(this);
@@ -133,13 +138,27 @@ export class UnconnectedAttachedImageWidget extends Component {
               )})`,
             }}
           >
-            <Button
-              basic
-              className="remove-image"
-              onClick={() => onChange(value, undefined)}
-            >
-              <Icon className="circled" name={clearSVG} size="20px" />
-            </Button>
+            {this.state.showFocusEditor ? (
+              <FocusPointeditor
+                onClose={() => this.setState({ showFocusEditor: false })}
+              />
+            ) : null}
+            <div className="toolbar">
+              <Button
+                basic
+                onClick={() => this.setState({ showFocusEditor: true })}
+                title="Set focus point"
+              >
+                <Icon className="circled" name={stateSVG} size="20px" />
+              </Button>
+              <Button
+                basic
+                onClick={() => onChange(value, undefined)}
+                title="Remove image"
+              >
+                <Icon className="circled" name={clearSVG} size="20px" />
+              </Button>
+            </div>
           </div>
         ) : (
           <Dropzone onDrop={this.onDrop} className="dropzone">
