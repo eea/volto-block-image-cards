@@ -112,8 +112,9 @@ const DiscreetCarousel = (props) => {
           return parentWidth && isClient ? (
             <div style={{ width: `${parentWidth - 100}px`, margin: '0 auto' }}>
               <Slider {...carouselSettings}>
-                {cards.map((card) => (
+                {cards.map((card, i) => (
                   <Card
+                    key={i}
                     mode={editable ? 'edit' : 'view'}
                     card={card}
                     height={height}
