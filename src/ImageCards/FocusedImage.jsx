@@ -20,7 +20,9 @@ const FocusedImageComponent = (props) => {
   }, [focus]);
 
   return (
-    <img className="focused-image" {...rest} src={src} alt="" ref={nodeRef} />
+    <div className="focused-image-parent">
+      <img className="focused-image" {...rest} src={src} alt="" ref={nodeRef} />
+    </div>
   );
 };
 
