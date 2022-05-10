@@ -61,9 +61,9 @@ const DiscreetCarousel = (props) => {
 
   const carouselSettings = {
     // speed: 800,
-    infinite: false,
+    infinite: true,
     slidesToShow: Math.min(cards.length, itemsPerRow),
-    slidesToScroll: itemsPerRow,
+    slidesToScroll: 1,
     dots: itemsPerRow > 1 && !hideNavigationDots,
     autoplay: itemsPerRow > 1 && autoplay && !editable,
     autoplaySpeed,
@@ -158,7 +158,7 @@ export const DiscreetCarouselSpotlightSchema = ({ data, schema, intl }) => {
       autoplaySpeed: {
         type: 'number',
         title: 'Autoplay delay',
-        defaultValue: 1000,
+        defaultValue: 50,
       },
       hideNavigationDots: {
         type: 'boolean',
