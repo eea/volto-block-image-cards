@@ -51,7 +51,7 @@ const DiscreetCarousel = (props) => {
   React.useEffect(() => setIsClient(true), []);
   const {
     cards = [],
-    height = '100px',
+    height = '120px',
     itemsPerRow = 4,
     hideNavigationDots = false,
     autoplay = false,
