@@ -7,6 +7,8 @@ import { serializeNodes } from 'volto-slate/editor/render';
 import { getScaleUrl, getPath } from '../utils';
 import { CommonCarouselschemaExtender } from './../CommonAssets/schema';
 import cx from 'classnames';
+import { flattenToAppURL } from '@plone/volto/helpers';
+import DefaultImageSVG from '@plone/volto/components/manage/Blocks/Listing/default-image.svg';
 
 import leftSVG from '@plone/volto/icons/left-key.svg';
 import rightSVG from '@plone/volto/icons/right-key.svg';
@@ -103,10 +105,14 @@ const Carousel = (props) => {
                   style={
                     card.attachedimage
                       ? {
-                          backgroundImage: `url(${getScaleUrl(
-                            getPath(card.attachedimage),
-                            image_scale || 'large',
-                          )})`,
+                          backgroundImage: `url(${
+                            card.attachedimage
+                              ? getScaleUrl(
+                                  flattenToAppURL(card.attachedimage),
+                                  image_scale || 'large',
+                                )
+                              : DefaultImageSVG
+                          })`,
                           height: `${height}px`,
                         }
                       : {}

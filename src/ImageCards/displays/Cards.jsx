@@ -4,7 +4,8 @@ import cx from 'classnames';
 import { Card, Icon, Message } from 'semantic-ui-react';
 import { UniversalLink } from '@plone/volto/components';
 import { serializeNodes } from 'volto-slate/editor/render';
-import { getScaleUrl, getPath } from '../utils';
+import { getScaleUrl } from '../utils';
+import { flattenToAppURL } from '@plone/volto/helpers';
 
 import '@eeacms/volto-block-image-cards/ImageCards/css/cards.less';
 
@@ -30,8 +31,12 @@ const Cards = (props) => {
     return (
       <img
         src={
-          getScaleUrl(getPath(attachedimage), image_scale || 'preview') ||
-          DefaultImageSVG
+          attachedimage
+            ? getScaleUrl(
+                flattenToAppURL(attachedimage),
+                image_scale || 'preview',
+              )
+            : DefaultImageSVG
         }
         alt={item.title}
       />
@@ -115,7 +120,7 @@ Cards.schema = () => ({
       title: 'Link title',
     },
     attachedimage: {
-      widget: 'attachedimage',
+      widget: 'attachedimagewidget',
       title: 'Image',
     },
     copyright: {

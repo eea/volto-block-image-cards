@@ -5,6 +5,9 @@ import { UniversalLink } from '@plone/volto/components';
 import { BodyClass } from '@plone/volto/helpers';
 import cx from 'classnames';
 import { getScaleUrl, getPath } from '../utils';
+import { flattenToAppURL } from '@plone/volto/helpers';
+import DefaultImageSVG from '@plone/volto/components/manage/Blocks/Listing/default-image.svg';
+
 import '../css/roundtiled.less';
 
 export const Card = (props) => {
@@ -41,10 +44,14 @@ export const Card = (props) => {
               style={
                 attachedimage
                   ? {
-                      backgroundImage: `url(${getScaleUrl(
-                        getPath(attachedimage),
-                        image_scale || 'preview',
-                      )})`,
+                      backgroundImage: `url(${
+                        attachedimage
+                          ? getScaleUrl(
+                              flattenToAppURL(attachedimage),
+                              image_scale || 'preview',
+                            )
+                          : DefaultImageSVG
+                      })`,
                     }
                   : {}
               }

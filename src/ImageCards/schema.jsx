@@ -24,7 +24,7 @@ const ImageCard = () => ({
       title: 'Link',
     },
     attachedimage: {
-      widget: 'attachedimage',
+      widget: 'attachedimagewidget',
       title: 'Image',
     },
     copyright: {

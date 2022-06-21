@@ -63,8 +63,8 @@ export default (config) => {
     },
   };
 
-  if (!config.widgets.widget.attachedimage) {
-    config.widgets.widget.attachedimage = AttachedImageWidget;
+  if (!config.widgets.widget.attachedimagewidget) {
+    config.widgets.widget.attachedimagewidget = AttachedImageWidget;
   }
   return config;
 };

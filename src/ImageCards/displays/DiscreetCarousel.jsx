@@ -4,7 +4,9 @@ import ResponsiveContainer from '../ResponsiveContainer';
 
 import loadable from '@loadable/component';
 import { CommonCarouselschemaExtender } from './../CommonAssets/schema';
+import { flattenToAppURL } from '@plone/volto/helpers';
 
+import DefaultImageSVG from '@plone/volto/components/manage/Blocks/Listing/default-image.svg';
 import 'slick-carousel/slick/slick.css';
 import '../css/discreetcarousel.less';
 // import 'slick-carousel/slick/slick-theme.css';
@@ -34,10 +36,14 @@ const Card = ({ card = {}, height, image_scale, mode = 'view' }) => {
         <LinkWrapper>
           <Image
             className="bg-image"
-            src={getScaleUrl(
-              getPath(card.attachedimage),
-              image_scale || 'large',
-            )}
+            src={
+              card.attachedimage
+                ? getScaleUrl(
+                    flattenToAppURL(card.attachedimage),
+                    image_scale || 'large',
+                  )
+                : DefaultImageSVG
+            }
           />
         </LinkWrapper>
       </PopupWrapper>
@@ -151,14 +157,27 @@ DiscreetCarousel.schemaExtender = (schema, data, intl) => {
   };
 
   Common.fieldsets[0].fields.push('itemsPerRow');
-
   return {
     ...schema,
     ...Common,
     properties: {
       ...schema.properties,
       ...Common.properties,
+      cards: {
+        ...schema.properties.cards,
+        schema: {
+          ...schema.properties.cards.schema,
+          properties: {
+            ...schema.properties.cards.schema.properties,
+            attachedimage: {
+              ...schema.properties.cards.schema.properties.attachedimage,
+              widget: 'attachedimagewidget',
+            },
+          },
+        },
+      },
     },
+
     fieldsets: [...schema.fieldsets, ...Common.fieldsets],
   };
 };
