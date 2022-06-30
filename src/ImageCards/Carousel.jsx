@@ -123,7 +123,7 @@ class Carousel extends Component {
     return (
       <div
         className={cx(
-          'block align imagecards-block',
+          'block align imagecards-block imagecards-carousel',
           {
             center: !Boolean(data.align),
           },
