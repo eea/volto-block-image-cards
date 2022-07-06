@@ -37,15 +37,15 @@ const ImageCard = () => ({
 });
 
 const ImageCards = (props) => {
-  const display_types_obj =
-    config.blocks.blocksConfig.imagecards.blockRenderers;
-  const display_types = Object.keys(display_types_obj).map((template) => [
+  const blockConfig = config.blocks.blocksConfig.imagecards;
+  const { blockRenderers, defaultRendererName } = blockConfig;
+  const display_types = Object.keys(blockRenderers).map((template) => [
     template,
-    display_types_obj[template].title || template,
+    blockRenderers[template].title || template,
   ]);
   const selected_renderer = props && props.data.display;
   const schema =
-    (selected_renderer && display_types_obj[selected_renderer].schema) ||
+    (selected_renderer && blockRenderers[selected_renderer].schema) ||
     ImageCard;
 
   return {
@@ -71,7 +71,7 @@ const ImageCards = (props) => {
       display: {
         title: 'Display',
         choices: [...display_types],
-        default: 'carousel',
+        default: defaultRendererName,
       },
       cards: {
         widget: 'object_list',

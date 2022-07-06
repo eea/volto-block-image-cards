@@ -18,7 +18,9 @@ const tweakSchema = (schema, data) => {
 const ImageCardsEdit = (props) => {
   const basicSchema = ImageCardSchema(props);
   const schema = tweakSchema(basicSchema, props.data, props.intl);
-  const display = props.data.display || 'carousel';
+  const blockConfig = config.blocks.blocksConfig.imagecards;
+  const { defaultRendererName } = blockConfig;
+  const display = props.data.display || defaultRendererName;
   const CardsView =
     config.blocks.blocksConfig.imagecards.blockRenderers?.[display]?.edit ||
     ImageCardsView;
@@ -39,7 +41,7 @@ const ImageCardsEdit = (props) => {
           }}
           formData={{
             ...props.data,
-            display: props.data?.display || 'carousel',
+            // display: props.data?.display || defaultRendererName,
           }}
           block={props.block}
         />
