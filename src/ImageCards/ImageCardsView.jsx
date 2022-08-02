@@ -13,7 +13,10 @@ const ImageCardView = (props) => {
 
   const Impl = byDisplayType[props.data.display || defaultRendererName];
 
-  return <Impl {...props} />;
+  if (!Impl) {
+    console.warn('Renderer not found', props.data);
+  }
+  return Impl ? <Impl {...props} /> : null;
 };
 
 export default ImageCardView;
