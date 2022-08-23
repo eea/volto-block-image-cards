@@ -3,7 +3,7 @@ import loadable from '@loadable/component';
 import { Message } from 'semantic-ui-react';
 import { Icon, UniversalLink } from '@plone/volto/components';
 import { BodyClass } from '@plone/volto/helpers';
-import { serializeNodes } from 'volto-slate/editor/render';
+import { serializeNodes } from '@plone/volto-slate/editor/render';
 import { getScaleUrl, getPath } from '../utils';
 import { CommonCarouselschemaExtender } from './../CommonAssets/schema';
 import cx from 'classnames';

@@ -17,12 +17,10 @@
     "url": "git@github.com:eea/volto-block-image-cards.git"
   },
   "addons": [
-    "volto-slate",
     "@eeacms/volto-block-style",
     "@eeacms/volto-object-widget"
   ],
   "dependencies": {
-    "volto-slate": "*",
     "@eeacms/volto-block-style": "*",
     "@eeacms/volto-object-widget": "*",
     "react-lazy-load-image-component": "^1.4.0",
