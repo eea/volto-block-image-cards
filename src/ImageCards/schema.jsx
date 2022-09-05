@@ -45,7 +45,7 @@ const ImageCards = (props) => {
   ]);
   const selected_renderer = props && props.data.display;
   const schema =
-    (selected_renderer && blockRenderers[selected_renderer].schema) ||
+    (selected_renderer && blockRenderers[selected_renderer]?.schema) ||
     ImageCard;
 
   return {
