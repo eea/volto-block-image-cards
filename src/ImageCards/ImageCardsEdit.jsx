@@ -10,7 +10,7 @@ import ImageCardSchema from './schema';
 const tweakSchema = (schema, data) => {
   const { blockRenderers } = config.blocks.blocksConfig.imagecards;
   const extension = data.display
-    ? blockRenderers[data.display].schemaExtender
+    ? blockRenderers[data.display]?.schemaExtender
     : null;
   return extension ? extension(schema, data) : schema;
 };
