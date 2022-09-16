@@ -12,7 +12,7 @@ import './css/carousel.less';
 
 import { getScaleUrl, getPath } from './utils';
 
-import { serializeNodes } from 'volto-slate/editor/render';
+import { serializeNodes } from '@plone/volto-slate/editor/render';
 import { BodyClass } from '@plone/volto/helpers';
 
 const Slider = loadable(() => import('react-slick'));
