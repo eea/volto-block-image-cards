@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageCardsEdit should render without crashing 1`] = `
+<div
+  className="image-cards-wrapper"
+>
+  
+</div>
+`;
+
+exports[`ImageCardsEdit should render without crashing and no display 1`] = `
+<div
+  className="image-cards-wrapper"
+>
+  
+</div>
+`;

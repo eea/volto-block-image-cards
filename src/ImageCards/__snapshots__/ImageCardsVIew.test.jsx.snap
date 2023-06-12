@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageCardsView should render without crashing 1`] = `
+<div
+  className="image-cards-wrapper"
+>
+  <div>
+    id1
+  </div>
+</div>
+`;
+
+exports[`ImageCardsView should render without crashing 2`] = `
+<div
+  className="image-cards-wrapper"
+>
+  
+</div>
+`;
