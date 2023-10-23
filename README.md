@@ -23,6 +23,8 @@ Image Cards Block [Volto](https://github.com/plone/volto) add-on
 - Discreet Carousel
 - Cards grid
 
+[Block Image Cards](https://raw.githubusercontent.com/eea/volto-block-image-cards/master/docs/block-image-cards.png)
+
 ## Upgrade
 
 ### Upgrading to 1.x
