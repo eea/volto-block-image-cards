@@ -1,13 +1,13 @@
-import DefaultImageSVG from '@plone/volto/components/manage/Blocks/Listing/default-image.svg';
 import React from 'react';
 import cx from 'classnames';
 import { Card, Icon, Message } from 'semantic-ui-react';
 import { UniversalLink } from '@plone/volto/components';
 import { serializeNodes } from '@plone/volto-slate/editor/render';
 import { getFieldURL } from '@eeacms/volto-block-image-cards/helpers';
-import { getScaleUrl } from '@eeacms/volto-block-image-cards/ImageCards/utils';
+import { getImageScaleParams } from '@eeacms/volto-block-image-cards/ImageCards/utils';
 
 import '@eeacms/volto-block-image-cards/ImageCards/css/cards.less';
+import DefaultImageSVG from '@plone/volto/components/manage/Blocks/Listing/default-image.svg';
 
 const alignmentTypes = {
   left: 'left',
@@ -17,26 +17,31 @@ const alignmentTypes = {
 };
 
 const Cards = (props) => {
-  const { data, editable } = props;
+  const { data, editable, isEditMode } = props;
   const {
     align,
     cards,
     image_scale,
     gridSize = 'one',
     theme = 'default',
+    height,
   } = data;
 
   const makeImage = (item) => {
     const { attachedimage } = item;
-    return (
+    const imageSrc = attachedimage
+      ? getImageScaleParams(attachedimage, image_scale || 'preview')
+      : isEditMode
+      ? DefaultImageSVG
+      : '';
+    return imageSrc ? (
       <img
-        src={
-          getScaleUrl(getFieldURL(attachedimage), image_scale || 'preview') ||
-          DefaultImageSVG
-        }
+        src={imageSrc?.download ?? imageSrc}
         alt={item.title}
+        height={height || imageSrc?.height || '100%'}
+        width={'100%'}
       />
-    );
+    ) : null;
   };
 
   const makeTextBody = (item) => {
@@ -126,6 +131,7 @@ Cards.schema = () => ({
     attachedimage: {
       widget: 'attachedimage',
       title: 'Image',
+      selectedItemAttrs: ['image_field', 'image_scales', '@type'],
     },
     copyright: {
       widget: 'slate_richtext',

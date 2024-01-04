@@ -21,7 +21,7 @@ const CardsEdit = (props) => {
 
   return (
     <>
-      <ImageCardsView {...props} />
+      <ImageCardsView {...props} isEditMode={true} />
 
       <SidebarPortal selected={selected}>
         <InlineForm

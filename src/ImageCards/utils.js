@@ -1,7 +1,56 @@
-import config from '@plone/volto/registry';
-import { flattenToAppURL } from '@plone/volto/helpers';
+import isString from 'lodash/isString';
+import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers';
+import { getFieldURL } from '@eeacms/volto-block-image-cards/helpers';
 
-export const getScaleUrl = (url, size) =>
-  (url || '').includes(config.settings.apiPath)
-    ? `${flattenToAppURL(url.replace('/api', ''))}/@@images/image/${size}`
-    : `${url.replace('/api', '')}/@@images/image/${size}`;
+export function getImageScaleParams(image, size) {
+  const imageScale = size || 'preview';
+
+  if (isString(image))
+    return isInternalURL(image)
+      ? { download: flattenToAppURL(`${image}/@@images/image/${imageScale}`) }
+      : { download: image };
+
+  if (image) {
+    if (isInternalURL(getFieldURL(image))) {
+      if (image?.image_scales?.[image?.image_field]) {
+        const scale =
+          image.image_scales[image.image_field]?.[0].scales?.[imageScale] ||
+          image.image_scales[image.image_field]?.[0];
+
+        const download = flattenToAppURL(
+          `${getFieldURL(image)}/${scale?.download}`,
+        );
+        const width = scale?.width;
+        const height = scale?.height;
+
+        return {
+          download,
+          width,
+          height,
+        };
+      } else if (image?.image?.scales) {
+        const scale = image.image?.scales?.[imageScale] || image.image;
+        const download = flattenToAppURL(scale?.download);
+        const width = scale?.width;
+        const height = scale?.height;
+
+        return {
+          download,
+          width,
+          height,
+        };
+      } else {
+        //fallback if we do not have scales
+        return {
+          download: flattenToAppURL(
+            `${getFieldURL(image)}/@@images/${
+              image.image_field || 'image'
+            }/${imageScale}`,
+          ),
+        };
+      }
+    } else {
+      return { download: getFieldURL(image) };
+    }
+  }
+}

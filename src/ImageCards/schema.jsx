@@ -26,6 +26,7 @@ const ImageCard = () => ({
     attachedimage: {
       widget: 'attachedimage',
       title: 'Image',
+      selectedItemAttrs: ['image_field', 'image_scales', '@type'],
     },
     copyright: {
       widget: 'slate_richtext',

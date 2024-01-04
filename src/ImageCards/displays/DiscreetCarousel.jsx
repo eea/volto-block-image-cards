@@ -2,7 +2,7 @@ import React from 'react';
 import loadable from '@loadable/component';
 import { Popup, Image, Message } from 'semantic-ui-react';
 import { getFieldURL } from '@eeacms/volto-block-image-cards/helpers';
-import { getScaleUrl } from '@eeacms/volto-block-image-cards/ImageCards/utils';
+import { getImageScaleParams } from '@eeacms/volto-block-image-cards/ImageCards/utils';
 import ResponsiveContainer from '@eeacms/volto-block-image-cards/ImageCards/ResponsiveContainer';
 import { CommonCarouselschemaExtender } from '@eeacms/volto-block-image-cards/ImageCards/CommonAssets/schema';
 
@@ -14,7 +14,10 @@ const Slider = loadable(() => import('react-slick'));
 const Card = ({ card = {}, height, image_scale, mode = 'view' }) => {
   const { title } = card;
   const link = getFieldURL(card.link);
-  const image = getFieldURL(card.attachedimage);
+  const imageSrc = getImageScaleParams(
+    card.attachedimage,
+    image_scale || 'large',
+  );
 
   const LinkWrapper =
     link && mode === 'view'
@@ -32,10 +35,14 @@ const Card = ({ card = {}, height, image_scale, mode = 'view' }) => {
     <div className="discreet-slide-img" style={{ height }}>
       <PopupWrapper>
         <LinkWrapper>
-          <Image
-            className="bg-image"
-            src={getScaleUrl(image, image_scale || 'large')}
-          />
+          {imageSrc ? (
+            <Image
+              className="bg-image"
+              src={imageSrc?.download ?? ''}
+              height={height || imageSrc?.height}
+              width={'100%'}
+            />
+          ) : null}
         </LinkWrapper>
       </PopupWrapper>
     </div>

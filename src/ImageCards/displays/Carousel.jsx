@@ -6,7 +6,7 @@ import { Icon, UniversalLink } from '@plone/volto/components';
 import { BodyClass } from '@plone/volto/helpers';
 import { serializeNodes } from '@plone/volto-slate/editor/render';
 import { getFieldURL } from '@eeacms/volto-block-image-cards/helpers';
-import { getScaleUrl } from '@eeacms/volto-block-image-cards/ImageCards/utils';
+import { getImageScaleParams } from '@eeacms/volto-block-image-cards/ImageCards/utils';
 import { CommonCarouselschemaExtender } from '@eeacms/volto-block-image-cards/ImageCards/CommonAssets/schema';
 
 import leftSVG from '@plone/volto/icons/left-key.svg';
@@ -103,20 +103,22 @@ const Carousel = (props) => {
           <Slider {...settings} ref={slider}>
             {(cards || []).map((card, index) => {
               const link = getFieldURL(card.link);
-              const image = getFieldURL(card.attachedimage);
+              const bgImageUrl = getImageScaleParams(
+                card.attachedimage,
+                image_scale || 'large',
+              );
 
               return (
                 <div className="slider-slide" key={index}>
                   <div
                     className="slide-img"
                     style={
-                      image
+                      bgImageUrl
                         ? {
-                            backgroundImage: `url(${getScaleUrl(
-                              image,
-                              image_scale || 'large',
-                            )})`,
-                            height: `${height}px`,
+                            backgroundImage: `url(${
+                              bgImageUrl?.download ?? bgImageUrl?.['@id']
+                            })`,
+                            height: `${height || bgImageUrl?.height}px`,
                           }
                         : {}
                     }
