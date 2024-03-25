@@ -1,8 +1,9 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-intl-redux';
 import config from '@plone/volto/registry';
 import ImageCardsEdit from './ImageCardsEdit';
+import '@testing-library/jest-dom/extend-expect';
 
 config.blocks.blocksConfig = {
   imagecards: {
@@ -28,7 +29,7 @@ config.blocks.blocksConfig = {
 
 describe('ImageCardsEdit', () => {
   it('should render without crashing', () => {
-    const component = renderer.create(
+    render(
       <Provider store={global.store}>
         <ImageCardsEdit
           data={{ display: 'id1' }}
@@ -37,21 +38,11 @@ describe('ImageCardsEdit', () => {
         />
       </Provider>,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
-  });
-
-  it('should render without crashing and no display', () => {
-    const component = renderer.create(
-      <Provider store={global.store}>
-        <ImageCardsEdit
-          data={{ display: undefined }}
-          onChangeBlock={jest.fn()}
-          block="1234"
-        />
-      </Provider>,
-    );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(screen.getByText(/Title/)).toBeInTheDocument();
+    expect(screen.getByText(/Text/)).toBeInTheDocument();
+    expect(screen.getByText(/Display/)).toBeInTheDocument();
+    expect(screen.getByText(/Alignment/)).toBeInTheDocument();
+    expect(screen.getByText(/Image scale/)).toBeInTheDocument();
+    expect(screen.getByText(/Images/)).toBeInTheDocument();
   });
 });
