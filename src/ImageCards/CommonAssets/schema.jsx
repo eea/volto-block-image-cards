@@ -1,12 +1,17 @@
 import React from 'react';
+import { useIntl } from 'react-intl';
+
+import messages from '@eeacms/volto-block-image-cards/messages';
 
 // See https://react-slick.neostack.com/docs/api
 export const CommonCarouselschemaExtender = ({ data }) => {
+  const intl = useIntl();
+
   return {
     fieldsets: [
       {
         id: 'settings',
-        title: 'Carousel Settings',
+        title: intl.formatMessage(messages.settingsTitle),
         fields: [
           'autoplay',
           ...(data.autoplay ? ['autoplaySpeed'] : []),
@@ -22,35 +27,35 @@ export const CommonCarouselschemaExtender = ({ data }) => {
     properties: {
       autoplay: {
         type: 'boolean',
-        title: 'Autoplay',
+        title: intl.formatMessage(messages.autoplayTitle),
       },
       autoplaySpeed: {
         type: 'number',
-        title: 'Autoplay delay',
-        description: 'Delay between each auto scroll (in milliseconds)',
+        title: intl.formatMessage(messages.autoplaySpeedTitle),
+        description: intl.formatMessage(messages.autoplaySpeedDescription),
         defaultValue: 10000,
       },
       pauseOnHover: {
         type: 'boolean',
-        title: 'Pause on hover',
-        description: 'Prevents autoplay while hovering on track',
+        title: intl.formatMessage(messages.pauseOnHoverTitle),
+        description: intl.formatMessage(messages.pauseOnHoverDescription),
       },
       infinite: {
         type: 'boolean',
-        title: 'Infinite',
-        description: 'Infinitely wrap around contents',
+        title: intl.formatMessage(messages.infiniteTitle),
+        description: intl.formatMessage(messages.infiniteDescription),
       },
       hideArrows: {
         type: 'boolean',
-        title: 'Hide arrows',
+        title: intl.formatMessage(messages.hideArrowsTitle),
       },
       hideNavigationDots: {
         type: 'boolean',
-        title: 'Hide navigation dots',
+        title: intl.formatMessage(messages.hideNavigationDotsTitle),
       },
       fade: {
         type: 'boolean',
-        title: 'Fade',
+        title: intl.formatMessage(messages.fadeTitle),
       },
       height: {
         title: (
@@ -59,7 +64,7 @@ export const CommonCarouselschemaExtender = ({ data }) => {
             target="_blank"
             href="https://developer.mozilla.org/en-US/docs/Web/CSS/height"
           >
-            CSS height
+            {intl.formatMessage(messages.heightTitle)}
           </a>
         ),
       },

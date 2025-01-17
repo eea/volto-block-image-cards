@@ -11,4 +11,227 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+#. Default: "Cards grid"
+#: messages
+msgid "Cards grid"
+msgstr "Kartenraster"
 
+#. Default: "Discreet Carousel"
+#: messages
+msgid "Discreet Carousel"
+msgstr "Diskretes Karussell"
+
+#. Default: "Image Cards"
+#: messages
+msgid "Image Cards"
+msgstr "Bildkarten"
+
+#. Default: "Round Tile"
+#: messages
+msgid "Round Tile"
+msgstr "Runde Kacheln"
+
+#. Default: "Splashy Carousel"
+#: messages
+msgid "Splashy Carousel"
+msgstr "Splashy Karussell"
+
+#. Default: "Autoplay"
+#: messages
+msgid "autoplay"
+msgstr ""
+
+#. Default: "Autoplay delay"
+#: messages
+msgid "autoplaySpeed"
+msgstr "Autoplay-Verzögerung"
+
+#. Default: "Delay between each auto scroll (in milliseconds)"
+#: messages
+msgid "autoplaySpeedDescription"
+msgstr "Verzögerung zwischen jedem automatischen Bildlauf (in Millisekunden)"
+
+#. Default: "carousel"
+#: messages
+msgid "carouselDefaultOption"
+msgstr "Karussell"
+
+#. Default: "Carousel Settings"
+#: messages
+msgid "carouselSettings"
+msgstr "Carousel Einstellungen"
+
+#. Default: "CSS height"
+#: messages
+msgid "cssHeight"
+msgstr "CSS Höhe"
+
+#. Default: "Default"
+#: messages
+msgid "defaultFieldsetTitle"
+msgstr "Standard"
+
+#. Default: "Default"
+#: messages
+msgid "defaultTheme"
+msgstr "Standard"
+
+#. Default: "Fade"
+#: messages
+msgid "fade"
+msgstr "Übergang"
+
+#. Default: "Four"
+#: messages
+msgid "fourOption"
+msgstr "Vier"
+
+#. Default: "Grid size"
+#: messages
+msgid "gridSizeTitle"
+msgstr "Rastergröße"
+
+#. Default: "Hide arrows"
+#: messages
+msgid "hideArrows"
+msgstr "Pfeile ausblenden"
+
+#. Default: "Hide navigation dots"
+#: messages
+msgid "hideNavigationDots"
+msgstr "Navigationspunkte ausblenden"
+
+#. Default: "Copyright"
+#: messages
+msgid "imageCardCopyright"
+msgstr ""
+
+#. Default: "Image"
+#: messages
+msgid "imageCardImage"
+msgstr "Bild"
+
+#. Default: "Link"
+#: messages
+msgid "imageCardLink"
+msgstr ""
+
+#. Default: "Link title"
+#: messages
+msgid "imageCardLinkTitle"
+msgstr "Link Titel"
+
+#. Default: "Metadata"
+#: messages
+msgid "imageCardMetadata"
+msgstr "Metadaten"
+
+#. Default: "Text"
+#: messages
+msgid "imageCardText"
+msgstr ""
+
+#. Default: "Title"
+#: messages
+msgid "imageCardTitle"
+msgstr "Titel"
+
+#. Default: "Add a list of Images as Carousel Items"
+#: messages
+msgid "imageCardsAddImagesDescription"
+msgstr "Eine Liste von Bildern als Karussell-Elemente hinzufügen"
+
+#. Default: "Alignment"
+#: messages
+msgid "imageCardsAlignment"
+msgstr "Ausrichtung"
+
+#. Default: "Image Card"
+#: messages
+msgid "imageCardsCardTitle"
+msgstr "Bildkarte"
+
+#. Default: "Display"
+#: messages
+msgid "imageCardsDisplay"
+msgstr "Anzeige"
+
+#. Default: "Image scale"
+#: messages
+msgid "imageCardsImageScale"
+msgstr "Bildgröße"
+
+#. Default: "Images"
+#: messages
+msgid "imageCardsImages"
+msgstr "Bilder"
+
+#. Default: "No image cards"
+#: messages
+msgid "imageCardsNull"
+msgstr "Keine Bildkarten gefunden"
+
+#. Default: "How many slides to show in one frame"
+#: messages
+msgid "imageCardsSlideCountDescription"
+msgstr "Wie viele Bilder in einem Rahmen gezeigt werden sollen"
+
+#. Default: "Slides to show"
+#: messages
+msgid "imageCardsSlideCountTitle"
+msgstr "Zu zeigende Bilder"
+
+#. Default: "Infinite"
+#: messages
+msgid "infinite"
+msgstr "Unendlich"
+
+#. Default: "Infinitely wrap around contents"
+#: messages
+msgid "infiniteDescription"
+msgstr "Unbegrenzt umlaufende Inhalte"
+
+#. Default: "One"
+#: messages
+msgid "oneOption"
+msgstr "Eins"
+
+#. Default: "Pause on hover"
+#: messages
+msgid "pauseOnHover"
+msgstr "Pause beim Hovern"
+
+#. Default: "Prevents autoplay while hovering on track"
+#: messages
+msgid "pauseOnHoverDescription"
+msgstr "Verhindert die automatische Wiedergabe beim hovern"
+
+#. Default: "Primary"
+#: messages
+msgid "primaryTheme"
+msgstr "Primär"
+
+#. Default: "Secondary"
+#: messages
+msgid "secondaryTheme"
+msgstr "Sekundär"
+
+#. Default: "Tertiary"
+#: messages
+msgid "tertiaryTheme"
+msgstr "Tertiär"
+
+#. Default: "Theme"
+#: messages
+msgid "themeTitle"
+msgstr ""
+
+#. Default: "Three"
+#: messages
+msgid "threeOption"
+msgstr "Drei"
+
+#. Default: "Two"
+#: messages
+msgid "twoOption"
+msgstr "Zwei"

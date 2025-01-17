@@ -11,4 +11,227 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+#. Default: "Cards grid"
+#: messages
+msgid "Cards grid"
+msgstr ""
 
+#. Default: "Discreet Carousel"
+#: messages
+msgid "Discreet Carousel"
+msgstr ""
+
+#. Default: "Image Cards"
+#: messages
+msgid "Image Cards"
+msgstr ""
+
+#. Default: "Round Tile"
+#: messages
+msgid "Round Tile"
+msgstr ""
+
+#. Default: "Splashy Carousel"
+#: messages
+msgid "Splashy Carousel"
+msgstr ""
+
+#. Default: "Autoplay"
+#: messages
+msgid "autoplay"
+msgstr ""
+
+#. Default: "Autoplay delay"
+#: messages
+msgid "autoplaySpeed"
+msgstr ""
+
+#. Default: "Delay between each auto scroll (in milliseconds)"
+#: messages
+msgid "autoplaySpeedDescription"
+msgstr ""
+
+#. Default: "carousel"
+#: messages
+msgid "carouselDefaultOption"
+msgstr ""
+
+#. Default: "Carousel Settings"
+#: messages
+msgid "carouselSettings"
+msgstr ""
+
+#. Default: "CSS height"
+#: messages
+msgid "cssHeight"
+msgstr ""
+
+#. Default: "Default"
+#: messages
+msgid "defaultFieldsetTitle"
+msgstr ""
+
+#. Default: "Default"
+#: messages
+msgid "defaultTheme"
+msgstr ""
+
+#. Default: "Fade"
+#: messages
+msgid "fade"
+msgstr ""
+
+#. Default: "Four"
+#: messages
+msgid "fourOption"
+msgstr ""
+
+#. Default: "Grid size"
+#: messages
+msgid "gridSizeTitle"
+msgstr ""
+
+#. Default: "Hide arrows"
+#: messages
+msgid "hideArrows"
+msgstr ""
+
+#. Default: "Hide navigation dots"
+#: messages
+msgid "hideNavigationDots"
+msgstr ""
+
+#. Default: "Copyright"
+#: messages
+msgid "imageCardCopyright"
+msgstr ""
+
+#. Default: "Image"
+#: messages
+msgid "imageCardImage"
+msgstr ""
+
+#. Default: "Link"
+#: messages
+msgid "imageCardLink"
+msgstr ""
+
+#. Default: "Link title"
+#: messages
+msgid "imageCardLinkTitle"
+msgstr ""
+
+#. Default: "Metadata"
+#: messages
+msgid "imageCardMetadata"
+msgstr ""
+
+#. Default: "Text"
+#: messages
+msgid "imageCardText"
+msgstr ""
+
+#. Default: "Title"
+#: messages
+msgid "imageCardTitle"
+msgstr ""
+
+#. Default: "Add a list of Images as Carousel Items"
+#: messages
+msgid "imageCardsAddImagesDescription"
+msgstr ""
+
+#. Default: "Alignment"
+#: messages
+msgid "imageCardsAlignment"
+msgstr ""
+
+#. Default: "Image Card"
+#: messages
+msgid "imageCardsCardTitle"
+msgstr ""
+
+#. Default: "Display"
+#: messages
+msgid "imageCardsDisplay"
+msgstr ""
+
+#. Default: "Image scale"
+#: messages
+msgid "imageCardsImageScale"
+msgstr ""
+
+#. Default: "Images"
+#: messages
+msgid "imageCardsImages"
+msgstr ""
+
+#. Default: "No image cards"
+#: messages
+msgid "imageCardsNull"
+msgstr ""
+
+#. Default: "How many slides to show in one frame"
+#: messages
+msgid "imageCardsSlideCountDescription"
+msgstr ""
+
+#. Default: "Slides to show"
+#: messages
+msgid "imageCardsSlideCountTitle"
+msgstr ""
+
+#. Default: "Infinite"
+#: messages
+msgid "infinite"
+msgstr ""
+
+#. Default: "Infinitely wrap around contents"
+#: messages
+msgid "infiniteDescription"
+msgstr ""
+
+#. Default: "One"
+#: messages
+msgid "oneOption"
+msgstr ""
+
+#. Default: "Pause on hover"
+#: messages
+msgid "pauseOnHover"
+msgstr ""
+
+#. Default: "Prevents autoplay while hovering on track"
+#: messages
+msgid "pauseOnHoverDescription"
+msgstr ""
+
+#. Default: "Primary"
+#: messages
+msgid "primaryTheme"
+msgstr ""
+
+#. Default: "Secondary"
+#: messages
+msgid "secondaryTheme"
+msgstr ""
+
+#. Default: "Tertiary"
+#: messages
+msgid "tertiaryTheme"
+msgstr ""
+
+#. Default: "Theme"
+#: messages
+msgid "themeTitle"
+msgstr ""
+
+#. Default: "Three"
+#: messages
+msgid "threeOption"
+msgstr ""
+
+#. Default: "Two"
+#: messages
+msgid "twoOption"
+msgstr ""

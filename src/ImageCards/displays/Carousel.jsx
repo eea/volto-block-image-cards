@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import loadable from '@loadable/component';
 import { Message } from 'semantic-ui-react';
+import { useIntl } from 'react-intl';
 import { Icon, UniversalLink } from '@plone/volto/components';
 import { BodyClass } from '@plone/volto/helpers';
 import { serializeNodes } from '@plone/volto-slate/editor/render';
@@ -13,6 +14,8 @@ import leftSVG from '@plone/volto/icons/left-key.svg';
 import rightSVG from '@plone/volto/icons/right-key.svg';
 import 'slick-carousel/slick/slick.css';
 import '../css/carousel.less';
+
+import messages from '@eeacms/volto-block-image-cards/messages';
 
 const Slider = loadable(() => import('react-slick'));
 
@@ -51,6 +54,7 @@ const Arrows = (props) => {
 };
 
 const Carousel = (props) => {
+  const intl = useIntl();
   const { data, editable } = props;
   const {
     cards,
@@ -80,7 +84,7 @@ const Carousel = (props) => {
   };
 
   if (!cards?.length && editable) {
-    return <Message>No image cards</Message>;
+    return <Message>{intl.formatMessage(messages.imageCardsNull)}</Message>;
   }
 
   return cards?.length ? (

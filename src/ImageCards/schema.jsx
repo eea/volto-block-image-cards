@@ -1,55 +1,61 @@
 import config from '@plone/volto/registry';
+import { useIntl } from 'react-intl';
 
-const ImageCard = () => ({
-  title: 'Image Card',
-  fieldsets: [
-    {
-      id: 'default',
-      title: 'Default',
-      fields: ['title', 'text', 'attachedimage', 'link', 'copyright'],
-    },
-  ],
+import messages from '@eeacms/volto-block-image-cards/messages';
 
-  properties: {
-    title: {
-      type: 'string',
-      title: 'Title',
-    },
-    text: {
-      widget: 'slate_richtext',
-      title: 'Text',
-    },
-    link: {
-      widget: 'url',
-      title: 'Link',
-    },
-    attachedimage: {
-      widget: 'attachedimage',
-      title: 'Image',
-    },
-    copyright: {
-      widget: 'slate_richtext',
-      title: 'Copyright',
-    },
-  },
+const ImageCard = (intl) => {
+  return {
+    title: intl.formatMessage(messages.imageCardsCardTitle),
+    fieldsets: [
+      {
+        id: 'default',
+        title: intl.formatMessage(messages.defaultFieldset),
+        fields: ['title', 'text', 'attachedimage', 'link', 'copyright'],
+      },
+    ],
 
-  required: ['attachedimage'],
-});
+    properties: {
+      title: {
+        type: 'string',
+        title: intl.formatMessage(messages.title),
+      },
+      text: {
+        widget: 'slate_richtext',
+        title: intl.formatMessage(messages.text),
+      },
+      link: {
+        widget: 'url',
+        title: intl.formatMessage(messages.link),
+      },
+      attachedimage: {
+        widget: 'attachedimage',
+        title: intl.formatMessage(messages.image),
+      },
+      copyright: {
+        widget: 'slate_richtext',
+        title: intl.formatMessage(messages.copyright),
+      },
+    },
+
+    required: ['attachedimage'],
+  };
+};
 
 const ImageCards = (props) => {
+  const intl = useIntl();
   const display_types_obj =
     config.blocks.blocksConfig.imagecards.blockRenderers;
-  const display_types = Object.keys(display_types_obj).map((template) => [
-    template,
-    display_types_obj[template].title || template,
-  ]);
+  const display_types = Object.keys(display_types_obj).map((template) => {
+    const titleId = display_types_obj[template]?.title;
+    return [template, titleId ? intl.formatMessage({ id: titleId }) : template];
+  });
   const selected_renderer = props && props.data.display;
   const schema =
     (selected_renderer && display_types_obj[selected_renderer]?.schema) ||
     ImageCard;
 
   return {
-    title: 'Image Cards',
+    title: intl.formatMessage(messages.imageCardsTitle),
 
     fieldsets: [
       {
@@ -62,30 +68,30 @@ const ImageCards = (props) => {
     properties: {
       title: {
         type: 'string',
-        title: 'Title',
+        title: intl.formatMessage(messages.title),
       },
       text: {
         widget: 'slate_richtext',
-        title: 'Text',
+        title: intl.formatMessage(messages.text),
       },
       display: {
-        title: 'Display',
+        title: intl.formatMessage(messages.display),
         choices: [...display_types],
-        default: 'carousel',
+        default: intl.formatMessage(messages.carousel),
       },
       cards: {
         widget: 'object_list',
-        title: 'Images',
-        description: 'Add a list of Images as Carousel Items',
-        schema: schema(),
+        title: intl.formatMessage(messages.images),
+        description: intl.formatMessage(messages.addImagesDescription),
+        schema: schema(intl),
       },
       image_scale: {
         type: 'string',
-        title: 'Image scale',
+        title: intl.formatMessage(messages.imageScale),
         default: 'large',
       },
       align: {
-        title: 'Alignment',
+        title: intl.formatMessage(messages.alignment),
         widget: 'align',
         type: 'string',
       },

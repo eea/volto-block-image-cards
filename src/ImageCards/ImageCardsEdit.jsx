@@ -6,18 +6,18 @@ import config from '@plone/volto/registry';
 import ImageCardsView from './ImageCardsView';
 import ImageCardSchema from './schema';
 
-const tweakSchema = (schema, data) => {
+const tweakSchema = (schema, data, intl) => {
   const { blockRenderers } = config.blocks.blocksConfig.imagecards;
   const extension = data.display
     ? blockRenderers[data.display]?.schemaExtender
     : null;
-  return extension ? extension(schema, data) : schema;
+  return extension ? extension(schema, data, intl) : schema;
 };
 
 const CardsEdit = (props) => {
-  const { selected, onChangeBlock, data = {}, block } = props;
+  const { selected, onChangeBlock, data = {}, block, intl } = props;
   const basicSchema = ImageCardSchema(props);
-  const schema = tweakSchema(basicSchema, props.data);
+  const schema = tweakSchema(basicSchema, props.data, intl);
 
   return (
     <>

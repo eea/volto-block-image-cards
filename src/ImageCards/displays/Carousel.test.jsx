@@ -2,6 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import Carousel from './Carousel';
 import '@testing-library/jest-dom/extend-expect';
+import { IntlProvider } from 'react-intl';
 
 jest.mock('@plone/volto-slate/editor/render', () => {
   return {
@@ -32,12 +33,13 @@ describe('Carousel', () => {
       ],
       image_scale: 'large',
     };
-
-    render(<Carousel data={data} />);
+    renderWithIntl(<Carousel data={data} />);
   });
 
   it('displays "No image cards" when editable and no cards', () => {
-    const { getByText } = render(<Carousel editable={true} data={{}} />);
+    const { getByText } = renderWithIntl(
+      <Carousel editable={true} data={{}} />,
+    );
     expect(getByText('No image cards')).toBeInTheDocument();
   });
 
@@ -52,8 +54,7 @@ describe('Carousel', () => {
       ],
       image_scale: 'large',
     };
-
-    render(<Carousel editable={true} data={data} />);
+    renderWithIntl(<Carousel data={data} />);
   });
 
   it('navigates to next and previous slide when arrows are clicked', () => {
@@ -73,7 +74,9 @@ describe('Carousel', () => {
       image_scale: undefined,
     };
 
-    const { container } = render(<Carousel editable={false} data={data} />);
+    const { container } = renderWithIntl(
+      <Carousel editable={false} data={data} />,
+    );
     const leftArrow = container.querySelector('.left-arrow');
     const rightArrow = container.querySelector('.right-arrow');
 
@@ -81,3 +84,11 @@ describe('Carousel', () => {
     fireEvent.click(leftArrow);
   });
 });
+
+const renderWithIntl = (ui, { locale = 'en', messages = {} } = {}) => {
+  return render(
+    <IntlProvider locale={locale} messages={messages}>
+      {ui}
+    </IntlProvider>,
+  );
+};

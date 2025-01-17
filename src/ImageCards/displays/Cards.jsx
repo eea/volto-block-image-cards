@@ -9,6 +9,8 @@ import { getScaleUrl } from '@eeacms/volto-block-image-cards/ImageCards/utils';
 
 import '@eeacms/volto-block-image-cards/ImageCards/css/cards.less';
 
+import messages from '@eeacms/volto-block-image-cards/messages';
+
 const alignmentTypes = {
   left: 'left',
   right: 'right',
@@ -17,7 +19,7 @@ const alignmentTypes = {
 };
 
 const Cards = (props) => {
-  const { data, editable } = props;
+  const { data, editable, intl } = props;
   const {
     align,
     cards,
@@ -64,7 +66,7 @@ const Cards = (props) => {
   };
 
   if (!cards?.length && editable) {
-    return <Message>No image cards</Message>;
+    return <Message>{intl.formatMessage(messages.imageCardsNull)}</Message>;
   }
 
   return cards?.length ? (
@@ -84,8 +86,8 @@ const Cards = (props) => {
   );
 };
 
-Cards.schema = () => ({
-  title: 'Image Card',
+Cards.schema = (intl) => ({
+  title: intl.formatMessage(messages.imageCardsCardTitle),
   fieldsets: [
     {
       id: 'default',
@@ -105,68 +107,68 @@ Cards.schema = () => ({
   properties: {
     title: {
       type: 'string',
-      title: 'Title',
+      title: intl.formatMessage(messages.title),
     },
     meta: {
       widget: 'slate_richtext',
-      title: 'Meta data',
+      title: intl.formatMessage(messages.metadata),
     },
     text: {
       widget: 'slate_richtext',
-      title: 'Text',
+      title: intl.formatMessage(messages.text),
     },
     link: {
       widget: 'url',
-      title: 'Link',
+      title: intl.formatMessage(messages.link),
     },
     linkTitle: {
       type: 'string',
-      title: 'Link title',
+      title: intl.formatMessage(messages.linkTitle),
     },
     attachedimage: {
       widget: 'attachedimage',
-      title: 'Image',
+      title: intl.formatMessage(messages.image),
     },
     copyright: {
       widget: 'slate_richtext',
-      title: 'Copyright',
+      title: intl.formatMessage(messages.copyright),
     },
   },
 
   required: ['attachedimage'],
 });
 
-Cards.schemaExtender = (schema) => {
+Cards.schemaExtender = (schema, data, intl) => {
   return {
     ...schema,
     fieldsets: [
       ...schema.fieldsets,
       {
         id: 'cards_grid',
-        title: 'Cards grid',
+        title: intl.formatMessage(messages.cardGrid),
         fields: ['gridSize', 'theme'],
       },
     ],
     properties: {
       ...schema.properties,
       gridSize: {
-        title: 'Grid Size',
+        title: intl.formatMessage(messages.gridSizeTitle),
         choices: [
-          ['one', 'One'],
-          ['two', 'Two'],
-          ['three', 'Three'],
-          ['four', 'Four'],
+          ['one', intl.formatMessage(messages.oneOption)],
+          ['two', intl.formatMessage(messages.twoOption)],
+          ['three', intl.formatMessage(messages.threeOption)],
+          ['four', intl.formatMessage(messages.fourOption)],
         ],
         factory: 'Choice',
         type: 'string',
       },
       theme: {
-        title: 'Theme',
+        title: intl.formatMessage(messages.themeTitle),
         choices: [
-          ['default', 'Default'],
-          ['primary', 'Primary'],
-          ['secondary', 'Secondary'],
-          ['tertiary', 'Tertiary'],
+          ['default', intl.formatMessage(messages.defaultTheme)],
+          ['primary', intl.formatMessage(messages.primaryTheme)],
+          ['secondary', intl.formatMessage(messages.secondaryTheme)],
+          ['tertiary', intl.formatMessage(messages.tertiaryTheme)],
         ],
       },
     },
