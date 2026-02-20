@@ -242,12 +242,12 @@ pipeline {
           env.scannerHome = "${tool 'SonarQubeScanner'}"
           env.PATH="${env.scannerHome}/bin:${env.NODEJS_HOME}/bin:${env.PATH}"
 
-          if ($CHANGE_ID) {
-            env.sonarParams = " -Dsonar.pullrequest.base=$CHANGE_TARGET -Dsonar.pullrequest.branch=$CHANGE_BRANCH -Dsonar.pullrequest.key=$CHANGE_ID "
+          if (env.CHANGE_ID) {
+            env.sonarParams = " -Dsonar.pullrequest.base=${env.CHANGE_TARGET} -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH} -Dsonar.pullrequest.key=${env.CHANGE_ID} "
           }
-          else
-            env.sonarParams = " -Dsonar.branch.name=$BRANCH_NAME"
-          
+          else {
+            env.sonarParams = " -Dsonar.branch.name=${env.BRANCH_NAME}"
+          }
           
           withSonarQubeEnv('Sonarqube') {
             sh '''sed -i "s#/app/src/addons/${GIT_NAME}/##g" xunit-reports/coverage/lcov.info'''
