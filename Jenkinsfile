@@ -1,7 +1,5 @@
 pipeline {
-  tools {
-    jdk 'Java17'
-  }
+
   agent {
     node { label 'docker-host' }
   }
@@ -243,11 +241,18 @@ pipeline {
           env.NODEJS_HOME = "${tool 'NodeJS'}"
           env.scannerHome = "${tool 'SonarQubeScanner'}"
           env.PATH="${env.scannerHome}/bin:${env.NODEJS_HOME}/bin:${env.PATH}"
+
+          if ($CHANGE_ID) {
+            env.sonarParams = " -Dsonar.pullrequest.base=$CHANGE_TARGET -Dsonar.pullrequest.branch=$CHANGE_BRANCH -Dsonar.pullrequest.key=$CHANGE_ID "
+          }
+          else
+            env.sonarParams = " -Dsonar.branch.name=$BRANCH_NAME"
+          
           
           withSonarQubeEnv('Sonarqube') {
             sh '''sed -i "s#/app/src/addons/${GIT_NAME}/##g" xunit-reports/coverage/lcov.info'''
             sh '''sed -i "s#src/addons/${GIT_NAME}/##g" xunit-reports/coverage/lcov.info'''
-            sh '''sonar-scanner -Dsonar.javascript.lcov.reportPaths=./xunit-reports/coverage/lcov.info,./cypress-coverage/coverage/lcov.info -Dsonar.sources=./src -Dsonar.projectKey=$GIT_NAME -Dsonar.projectName=$GIT_NAME -Dsonar.pullrequest.key=$CHANGE_ID -Dsonar.branch.name=$BRANCH_NAME'''
+            sh '''sonar-scanner -Dsonar.javascript.lcov.reportPaths=./xunit-reports/coverage/lcov.info,./cypress-coverage/coverage/lcov.info -Dsonar.sources=./src -Dsonar.projectKey=$GIT_NAME -Dsonar.projectName=$GIT_NAME ${sonarParams} '''
             sh '''try=5; while [ \$try -gt 0 ]; do curl -s -XPOST -u "${SONAR_AUTH_TOKEN}:" "${SONAR_HOST_URL}api/project_tags/set?project=${GIT_NAME}&tags=${SONARQUBE_TAGS}" > set_tags_result; if [ \$(grep -ic error set_tags_result ) -eq 0 ]; then try=0; else cat set_tags_result; echo "... Will retry"; sleep 15; try=\$(( \$try - 1 )); fi; done'''
           }
         }
