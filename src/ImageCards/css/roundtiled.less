@@ -39,6 +39,7 @@
     position: relative;
     overflow: hidden;
     width: @cardImageWidth;
+    max-width: 100%;
     border-radius: @cardImageBorderRadius;
     margin: @cardImageMargin;
     aspect-ratio: 1;
@@ -61,15 +62,27 @@
   }
 }
 
-.center .card-title {
+.column-grid .roundtiled .cards-grid.ui.grid > .column {
+  width: auto !important;
+}
+
+.center.imagecards-block .roundtiled .cards-grid {
+  justify-content: center;
+}
+
+.right.imagecards-block .roundtiled .cards-grid {
+  justify-content: flex-end;
+}
+
+.center .roundtiled .card-title {
   text-align: center;
 }
 
-.left .card-title {
+.left .roundtiled .card-title {
   text-align: left;
 }
 
-.right .card-title {
+.right .roundtiled .card-title {
   text-align: right;
 }
 
