@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import Carousel from './Carousel';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { IntlProvider } from 'react-intl';
 
 jest.mock('@plone/volto-slate/editor/render', () => {
