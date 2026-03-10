@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-intl-redux';
 import config from '@plone/volto/registry';
 import ImageCardsEdit from './ImageCardsEdit';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 config.blocks.blocksConfig = {
   imagecards: {

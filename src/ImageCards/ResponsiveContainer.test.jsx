@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, act, waitFor, fireEvent } from '@testing-library/react';
 import ResponsiveContainer from './ResponsiveContainer';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 global.ResizeObserver = require('resize-observer-polyfill');
 
