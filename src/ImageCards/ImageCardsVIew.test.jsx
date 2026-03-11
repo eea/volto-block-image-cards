@@ -6,6 +6,9 @@ import '@testing-library/jest-dom';
 
 describe('ImageCardsView', () => {
   beforeEach(() => {
+    if (!config.blocks) {
+      config.blocks = {};
+    }
     config.blocks.blocksConfig = {
       imagecards: {
         blockRenderers: {
