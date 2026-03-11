@@ -35,6 +35,7 @@ describe('ImageCardsEdit', () => {
           data={{ display: 'id1' }}
           onChangeBlock={jest.fn()}
           block="1234"
+          selected
         />
       </Provider>,
     );
