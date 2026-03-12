@@ -5,8 +5,8 @@ import '@testing-library/jest-dom';
 import { IntlProvider } from 'react-intl';
 
 // Polyfill matchMedia for jsdom (required by react-slick/enquire.js)
-if (!window.matchMedia) {
-  window.matchMedia = jest.fn().mockImplementation((query) => ({
+if (!global.matchMedia) {
+  global.matchMedia = jest.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
