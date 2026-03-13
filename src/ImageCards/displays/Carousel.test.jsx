@@ -1,3 +1,5 @@
+/* global globalThis */
+
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import config from '@plone/volto/registry';
@@ -5,8 +7,8 @@ import '@testing-library/jest-dom';
 import { IntlProvider } from 'react-intl';
 
 // Polyfill matchMedia for jsdom (required by react-slick/enquire.js)
-if (!global.matchMedia) {
-  global.matchMedia = jest.fn().mockImplementation((query) => ({
+if (!globalThis.matchMedia) {
+  globalThis.matchMedia = jest.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
