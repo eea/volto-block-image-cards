@@ -1,10 +1,27 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-intl-redux';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import config from '@plone/volto/registry';
 import ImageCardsEdit from './ImageCardsEdit';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
+jest.mock('@plone/volto/components/manage/Form/InlineForm', () => {
+  return ({ schema }) => (
+    <div>
+      {schema.fieldsets.map((fieldset) =>
+        fieldset.fields.map((field) => (
+          <div key={field}>{schema.properties[field]?.title}</div>
+        )),
+      )}
+    </div>
+  );
+});
+
+if (!config.blocks) {
+  config.blocks = {};
+}
 config.blocks.blocksConfig = {
   imagecards: {
     blockRenderers: {
@@ -27,14 +44,34 @@ config.blocks.blocksConfig = {
   },
 };
 
+const mockStore = configureStore([thunk]);
+const store = mockStore({
+  intl: {
+    locale: 'en',
+    messages: {},
+    formatMessage: jest.fn(),
+  },
+  content: {
+    create: {},
+    subrequests: [],
+  },
+  connected_data_parameters: {},
+  screen: {
+    page: {
+      width: 768,
+    },
+  },
+});
+
 describe('ImageCardsEdit', () => {
   it('should render without crashing', () => {
     render(
-      <Provider store={global.store}>
+      <Provider store={store}>
         <ImageCardsEdit
           data={{ display: 'id1' }}
           onChangeBlock={jest.fn()}
           block="1234"
+          selected
         />
       </Provider>,
     );

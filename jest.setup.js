@@ -4,9 +4,12 @@ import thunk from 'redux-thunk';
 import config from '@plone/volto/registry';
 import { blocksConfig } from '@plone/volto/config/Blocks';
 
+if (!config.blocks) {
+  config.blocks = {};
+}
 config.blocks.blocksConfig = {
   ...blocksConfig,
-  ...config.blocks.blocksConfig,
+  ...(config.blocks.blocksConfig || {}),
 };
 
 const mockStore = configureStore([thunk]);

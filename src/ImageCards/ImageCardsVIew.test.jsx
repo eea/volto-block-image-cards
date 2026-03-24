@@ -2,10 +2,13 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import config from '@plone/volto/registry';
 import ImageCardsView from './ImageCardsView';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 describe('ImageCardsView', () => {
   beforeEach(() => {
+    if (!config.blocks) {
+      config.blocks = {};
+    }
     config.blocks.blocksConfig = {
       imagecards: {
         blockRenderers: {
