@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import { Card, Icon, Message } from 'semantic-ui-react';
-import { UniversalLink } from '@plone/volto/components';
+import UniversalLink from '@plone/volto/components/manage/UniversalLink/UniversalLink';
 import { serializeNodes } from '@plone/volto-slate/editor/render';
 import { getFieldURL } from '@eeacms/volto-block-image-cards/helpers';
 import { getImageScaleParams } from '@eeacms/volto-object-widget/helpers';
@@ -34,8 +34,8 @@ const Cards = (props) => {
     const imageSrc = attachedimage
       ? getImageScaleParams(attachedimage, image_scale || 'preview')
       : isEditMode
-      ? DefaultImageSVG
-      : '';
+        ? DefaultImageSVG
+        : '';
     return imageSrc ? (
       <img
         src={imageSrc?.download ?? imageSrc}

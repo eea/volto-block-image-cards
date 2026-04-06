@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid, Message } from 'semantic-ui-react';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
-import { UniversalLink } from '@plone/volto/components';
-import { BodyClass } from '@plone/volto/helpers';
+import UniversalLink from '@plone/volto/components/manage/UniversalLink/UniversalLink';
+import BodyClass from '@plone/volto/helpers/BodyClass/BodyClass';
 import cx from 'classnames';
 import { getFieldURL } from '@eeacms/volto-block-image-cards/helpers';
 import { getImageScaleParams } from '@eeacms/volto-object-widget/helpers';
