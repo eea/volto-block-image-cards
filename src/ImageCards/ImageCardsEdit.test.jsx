@@ -19,6 +19,10 @@ jest.mock('@plone/volto/components/manage/Form/InlineForm', () => {
   );
 });
 
+jest.mock('@plone/volto/components/manage/Sidebar/SidebarPortal', () => {
+  return ({ children }) => <>{children}</>;
+});
+
 if (!config.blocks) {
   config.blocks = {};
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import { Card, Icon, Message } from 'semantic-ui-react';
 import UniversalLink from '@plone/volto/components/manage/UniversalLink/UniversalLink';
+import Image from '@plone/volto/components/theme/Image/Image';
 import { serializeNodes } from '@plone/volto-slate/editor/render';
 import { getFieldURL } from '@eeacms/volto-block-image-cards/helpers';
 import { getImageScaleParams } from '@eeacms/volto-object-widget/helpers';
@@ -37,7 +38,7 @@ const Cards = (props) => {
         ? DefaultImageSVG
         : '';
     return imageSrc ? (
-      <img
+      <Image
         src={imageSrc?.download ?? imageSrc}
         alt={item.title}
         height={height || imageSrc?.height || '100%'}
