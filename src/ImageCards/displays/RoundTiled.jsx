@@ -6,7 +6,7 @@ import BodyClass from '@plone/volto/helpers/BodyClass/BodyClass';
 import cx from 'classnames';
 import { getFieldURL } from '@eeacms/volto-block-image-cards/helpers';
 import { getImageScaleParams } from '@eeacms/volto-object-widget/helpers';
-import '../css/roundtiled.less';
+import '@eeacms/volto-block-image-cards/ImageCards/css/roundtiled.less';
 
 import messages from '@eeacms/volto-block-image-cards/messages';
 

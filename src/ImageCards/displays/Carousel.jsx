@@ -14,7 +14,7 @@ import { CommonCarouselschemaExtender } from '@eeacms/volto-block-image-cards/Im
 import leftSVG from '@plone/volto/icons/left-key.svg';
 import rightSVG from '@plone/volto/icons/right-key.svg';
 import 'slick-carousel/slick/slick.css';
-import '../css/carousel.less';
+import '@eeacms/volto-block-image-cards/ImageCards/css/carousel.less';
 
 import messages from '@eeacms/volto-block-image-cards/messages';
 
