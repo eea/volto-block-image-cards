@@ -1,8 +1,7 @@
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
 import isString from 'lodash/isString';
-import { isInternalURL } from '@plone/volto/helpers/Url/Url';
-import { flattenToAppURL } from '@plone/volto/helpers/Url/Url';
+import { isInternalURL, flattenToAppURL } from '@plone/volto/helpers/Url/Url';
 
 export const getFieldURL = (data) => {
   let url = data;
