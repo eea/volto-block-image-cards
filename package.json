@@ -20,7 +20,7 @@
     "@eeacms/volto-object-widget"
   ],
   "dependencies": {
-    "@eeacms/volto-object-widget": "*",
+    "@eeacms/volto-object-widget": "^9.1.1",
     "react-lazy-load-image-component": "^1.4.0",
     "react-resize-detector": "7.1.2",
     "react-slick": "^0.30.1",
