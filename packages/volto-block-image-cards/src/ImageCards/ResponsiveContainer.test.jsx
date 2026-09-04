@@ -44,9 +44,7 @@ describe('ResponsiveContainer', () => {
       height: 100,
       minWidth: 50,
     };
-    const ChildComponent = vi.fn(({ parentWidth }) => (
-      <div>{parentWidth}</div>
-    ));
+    const ChildComponent = vi.fn(({ parentWidth }) => <div>{parentWidth}</div>);
 
     render(
       <ResponsiveContainer {...props}>{ChildComponent}</ResponsiveContainer>,
