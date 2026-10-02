@@ -1,0 +1,246 @@
+#. Translation of volto.pot to Spanish
+#. Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-15 11:45-0400\n"
+"PO-Revision-Date: 2026-09-07 16:59+0200\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
+"Language-Team: ES <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Preferred-Encodings: utf-8\n"
+"Language-Code: es\n"
+"Language-Name: Español\n"
+"Domain: volto\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Generator: Poedit 3.9\n"
+
+#. Default: "Cards grid"
+#: messages
+msgid "Cards grid"
+msgstr "Rejilla de tarjetas"
+
+#. Default: "Discreet Carousel"
+#: messages
+msgid "Discreet Carousel"
+msgstr "Carrusel discreto"
+
+#. Default: "Image Cards"
+#: messages
+msgid "Image Cards"
+msgstr "Tarjetas con imágenes"
+
+#. Default: "Round Tile"
+#: messages
+msgid "Round Tile"
+msgstr "Azulejo redondo"
+
+#. Default: "Splashy Carousel"
+#: messages
+msgid "Splashy Carousel"
+msgstr "Carrusel acuático"
+
+#. Default: "Autoplay"
+#: messages
+msgid "autoplay"
+msgstr "Reproducción automática"
+
+#. Default: "Autoplay delay"
+#: messages
+msgid "autoplaySpeed"
+msgstr "Desplazamiento de reproducción automática"
+
+#. Default: "Delay between each auto scroll (in milliseconds)"
+#: messages
+msgid "autoplaySpeedDescription"
+msgstr "Retardo entre cada desplazamiento automático (en milisegundos)"
+
+#. Default: "carousel"
+#: messages
+msgid "carouselDefaultOption"
+msgstr "carrusel"
+
+#. Default: "Carousel Settings"
+#: messages
+msgid "carouselSettings"
+msgstr "Configuración del carrusel"
+
+#. Default: "CSS height"
+#: messages
+msgid "cssHeight"
+msgstr "Altura CSS"
+
+#. Default: "Default"
+#: messages
+msgid "defaultFieldsetTitle"
+msgstr "Predeterminado"
+
+#. Default: "Default"
+#: messages
+msgid "defaultTheme"
+msgstr "Predeterminado"
+
+#. Default: "Fade"
+#: messages
+msgid "fade"
+msgstr "Fundido"
+
+#. Default: "Four"
+#: messages
+msgid "fourOption"
+msgstr "Cuatro"
+
+#. Default: "Grid size"
+#: messages
+msgid "gridSizeTitle"
+msgstr "Tamaño de la rejilla"
+
+#. Default: "Hide arrows"
+#: messages
+msgid "hideArrows"
+msgstr "Ocultar flechas"
+
+#. Default: "Hide navigation dots"
+#: messages
+msgid "hideNavigationDots"
+msgstr "Ocultar los puntos de navegación"
+
+#. Default: "Copyright"
+#: messages
+msgid "imageCardCopyright"
+msgstr "Derechos de autor"
+
+#. Default: "Image"
+#: messages
+msgid "imageCardImage"
+msgstr "Imagen"
+
+#. Default: "Link"
+#: messages
+msgid "imageCardLink"
+msgstr "Enlace"
+
+#. Default: "Link title"
+#: messages
+msgid "imageCardLinkTitle"
+msgstr "Título del enlace"
+
+#. Default: "Metadata"
+#: messages
+msgid "imageCardMetadata"
+msgstr "Metadatos"
+
+#. Default: "Text"
+#: messages
+msgid "imageCardText"
+msgstr "Texto"
+
+#. Default: "Title"
+#: messages
+msgid "imageCardTitle"
+msgstr "Título"
+
+#. Default: "Add a list of Images as Carousel Items"
+#: messages
+msgid "imageCardsAddImagesDescription"
+msgstr "Añadir una lista de imágenes como elementos de un carrusel"
+
+#. Default: "Alignment"
+#: messages
+msgid "imageCardsAlignment"
+msgstr "Alineación"
+
+#. Default: "Image Card"
+#: messages
+msgid "imageCardsCardTitle"
+msgstr "Tarjeta con imagen"
+
+#. Default: "Display"
+#: messages
+msgid "imageCardsDisplay"
+msgstr "Mostrar"
+
+#. Default: "Image scale"
+#: messages
+msgid "imageCardsImageScale"
+msgstr "Escala de imagen"
+
+#. Default: "Images"
+#: messages
+msgid "imageCardsImages"
+msgstr "Imágenes"
+
+#. Default: "No image cards"
+#: messages
+msgid "imageCardsNull"
+msgstr "No hay tarjetas de imagen"
+
+#. Default: "How many slides to show in one frame"
+#: messages
+msgid "imageCardsSlideCountDescription"
+msgstr "¿Cuántas diapositivas se deben mostrar en un fotograma?"
+
+#. Default: "Slides to show"
+#: messages
+msgid "imageCardsSlideCountTitle"
+msgstr "Diapositivas para mostrar"
+
+#. Default: "Infinite"
+#: messages
+msgid "infinite"
+msgstr "Infinito"
+
+#. Default: "Infinitely wrap around contents"
+#: messages
+msgid "infiniteDescription"
+msgstr "Envolver el contenido de forma infinita"
+
+#. Default: "One"
+#: messages
+msgid "oneOption"
+msgstr "Una"
+
+#. Default: "Pause on hover"
+#: messages
+msgid "pauseOnHover"
+msgstr "Pausa al pasar el cursor por encima"
+
+#. Default: "Prevents autoplay while hovering on track"
+#: messages
+msgid "pauseOnHoverDescription"
+msgstr "Evita la reproducción automática al pasar el cursor por encima de una pista"
+
+#. Default: "Primary"
+#: messages
+msgid "primaryTheme"
+msgstr "Primario"
+
+#. Default: "Secondary"
+#: messages
+msgid "secondaryTheme"
+msgstr "Secundario"
+
+#. Default: "Tertiary"
+#: messages
+msgid "tertiaryTheme"
+msgstr "Terciario"
+
+#. Default: "Theme"
+#: messages
+msgid "themeTitle"
+msgstr "Tema"
+
+#. Default: "Three"
+#: messages
+msgid "threeOption"
+msgstr "Tres"
+
+#. Default: "Two"
+#: messages
+msgid "twoOption"
+msgstr "Dos"
