@@ -65,9 +65,10 @@ module.exports = {
       statements: 5,
     },
   },
-  ...(process.env.JEST_USE_SETUP === 'ON' && {
-    setupFilesAfterEnv: [
-      '<rootDir>/node_modules/@eeacms/volto-block-image-cards/jest.setup.js',
-    ],
-  }),
+  setupFilesAfterEnv: [
+    '<rootDir>/node_modules/@eeacms/volto-block-image-cards/jest.uuid.setup.js',
+    ...(process.env.JEST_USE_SETUP === 'ON'
+      ? ['<rootDir>/node_modules/@eeacms/volto-block-image-cards/jest.setup.js']
+      : []),
+  ],
 }
