@@ -23,6 +23,20 @@ Image Cards Block [Volto](https://github.com/plone/volto) add-on
 - Discreet Carousel
 - Cards grid
 
+## Translations
+
+This product support the following languages:
+
+- Deutsch
+
+- English
+
+- Spanish
+
+- Italian
+
+- Romanian
+
 [Block Image Cards](https://raw.githubusercontent.com/eea/volto-block-image-cards/master/docs/block-image-cards.png)
 
 ## Upgrade
