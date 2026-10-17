@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 /* global globalThis */
 
 import React from 'react';
@@ -5,18 +6,19 @@ import { render, fireEvent } from '@testing-library/react';
 import config from '@plone/volto/registry';
 import '@testing-library/jest-dom';
 import { IntlProvider } from 'react-intl';
+import Carousel from './Carousel';
 
 // Polyfill matchMedia for jsdom (required by react-slick/enquire.js)
 if (!globalThis.matchMedia) {
-  globalThis.matchMedia = jest.fn().mockImplementation((query) => ({
+  globalThis.matchMedia = vi.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: jest.fn(),
-    removeListener: jest.fn(),
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
   }));
 }
 
@@ -28,18 +30,15 @@ config.settings.publicURL =
   config.settings.publicURL || 'http://localhost:3000';
 config.settings.apiPath = config.settings.apiPath || 'http://localhost:3000';
 
-// Import Carousel after matchMedia polyfill and config setup
-const Carousel = require('./Carousel').default;
-
-jest.mock('@plone/volto-slate/editor/render', () => {
+vi.mock('@plone/volto-slate/editor/render', () => {
   return {
-    serializeNodes: jest.fn(() => 'Test card'),
+    serializeNodes: vi.fn(() => 'Test card'),
   };
 });
 
-jest.mock('@eeacms/volto-block-image-cards/helpers', () => {
+vi.mock('@eeacms/volto-block-image-cards/helpers', () => {
   return {
-    getFieldURL: jest.fn(),
+    getFieldURL: vi.fn(),
   };
 });
 

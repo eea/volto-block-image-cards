@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-intl-redux';
@@ -7,20 +8,22 @@ import config from '@plone/volto/registry';
 import ImageCardsEdit from './ImageCardsEdit';
 import '@testing-library/jest-dom';
 
-jest.mock('@plone/volto/components/manage/Form/InlineForm', () => {
-  return ({ schema }) => (
-    <div>
-      {schema.fieldsets.map((fieldset) =>
-        fieldset.fields.map((field) => (
-          <div key={field}>{schema.properties[field]?.title}</div>
-        )),
-      )}
-    </div>
-  );
+vi.mock('@plone/volto/components/manage/Form/InlineForm', () => {
+  return {
+    default: ({ schema }) => (
+      <div>
+        {schema.fieldsets.map((fieldset) =>
+          fieldset.fields.map((field) => (
+            <div key={field}>{schema.properties[field]?.title}</div>
+          )),
+        )}
+      </div>
+    ),
+  };
 });
 
-jest.mock('@plone/volto/components/manage/Sidebar/SidebarPortal', () => {
-  return ({ children }) => <>{children}</>;
+vi.mock('@plone/volto/components/manage/Sidebar/SidebarPortal', () => {
+  return { default: ({ children }) => <>{children}</> };
 });
 
 if (!config.blocks) {
@@ -53,7 +56,7 @@ const store = mockStore({
   intl: {
     locale: 'en',
     messages: {},
-    formatMessage: jest.fn(),
+    formatMessage: vi.fn(),
   },
   content: {
     create: {},
@@ -73,7 +76,7 @@ describe('ImageCardsEdit', () => {
       <Provider store={store}>
         <ImageCardsEdit
           data={{ display: 'id1' }}
-          onChangeBlock={jest.fn()}
+          onChangeBlock={vi.fn()}
           block="1234"
           selected
         />
