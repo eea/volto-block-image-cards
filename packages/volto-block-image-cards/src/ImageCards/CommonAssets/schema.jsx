@@ -57,7 +57,7 @@ export const CommonCarouselschemaExtender = ({ data, intl }) => {
       height: {
         title: (
           <a
-            rel="noopener"
+            rel="noopener noreferrer"
             target="_blank"
             href="https://developer.mozilla.org/en-US/docs/Web/CSS/height"
           >

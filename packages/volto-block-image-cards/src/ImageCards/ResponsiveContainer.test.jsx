@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import React from 'react';
 import { render, act, waitFor, fireEvent } from '@testing-library/react';
 import ResponsiveContainer from './ResponsiveContainer';
@@ -43,9 +44,7 @@ describe('ResponsiveContainer', () => {
       height: 100,
       minWidth: 50,
     };
-    const ChildComponent = jest.fn(({ parentWidth }) => (
-      <div>{parentWidth}</div>
-    ));
+    const ChildComponent = vi.fn(({ parentWidth }) => <div>{parentWidth}</div>);
 
     render(
       <ResponsiveContainer {...props}>{ChildComponent}</ResponsiveContainer>,
@@ -63,12 +62,12 @@ describe('ResponsiveContainer', () => {
   });
 
   it('updates dimensions immediately if mounted and new size is different', () => {
-    const getContainerSizeMock = jest.fn(() => ({
+    const getContainerSizeMock = vi.fn(() => ({
       containerWidth: 500,
       containerHeight: 500,
     }));
 
-    const setStateMock = jest.fn();
+    const setStateMock = vi.fn();
 
     const instance = new ResponsiveContainer({});
     instance.mounted = true;
@@ -85,8 +84,8 @@ describe('ResponsiveContainer', () => {
   });
 
   it('does not update dimensions if not mounted', () => {
-    const getContainerSizeMock = jest.fn();
-    const setStateMock = jest.fn();
+    const getContainerSizeMock = vi.fn();
+    const setStateMock = vi.fn();
 
     const instance = new ResponsiveContainer({});
     instance.mounted = false;
@@ -100,12 +99,12 @@ describe('ResponsiveContainer', () => {
   });
 
   it('does not update dimensions if new size is the same as old size', () => {
-    const getContainerSizeMock = jest.fn(() => ({
+    const getContainerSizeMock = vi.fn(() => ({
       containerWidth: 500,
       containerHeight: 500,
     }));
 
-    const setStateMock = jest.fn();
+    const setStateMock = vi.fn();
 
     const instance = new ResponsiveContainer({});
     instance.mounted = true;
