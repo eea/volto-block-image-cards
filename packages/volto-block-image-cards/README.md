@@ -31,6 +31,20 @@ This product support the following languages:
 
 ## Upgrade
 
+### Upgrading to 5.x
+
+> This version requires `Volto 18` or `Volto 19` and Node.js 22.
+
+The block keeps the same blocks and displays, so upgrading from 4.x on Volto 18 needs no content changes. The release adds Volto 19 support and moves the repository to the Volto 19 layout, where the published package lives in `packages/volto-block-image-cards`.
+
+#### Breaking changes
+
+- **Node.js 22 or newer is required** (`engines.node >= 22.0.0`), 4.x declared no engine.
+- **React 18 is required.** The package declares `react` and `react-dom` as `^18.2.0` peers; 4.x declared only `classnames`, `react-loadable` and `uuid`, which it still declares.
+- **The package no longer ships the Jest setup.** `jest-addon.config.js` is gone and `jest.setup.js` became `vitest.setup.jsx`, so a Volto 18 project that still runs the Jest harness has to keep its own copy.
+
+Two links rendered by the schema and by the discreet carousel now carry `rel="noopener noreferrer"` instead of `rel="noopener"`.
+
 ### Upgrading to 1.x
 
 This version requires: `@plone/volto >= 16.0.0.alpha.15` (`volto-slate` part of Volto Core).
